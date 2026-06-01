@@ -1531,6 +1531,8 @@ Using a combination of industry-standard software, emerging AI tools, and hands-
   });
 
   document.getElementById('lb-close').addEventListener('click', closeLightbox);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  document.querySelector('.lb-inner').addEventListener('click', e => e.stopPropagation());
   document.getElementById('lb-prev').addEventListener('click', () => {
     const visible = getVisible();
     currentIndex = (currentIndex - 1 + visible.length) % visible.length;
